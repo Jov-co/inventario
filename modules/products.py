@@ -43,18 +43,25 @@ class products():
         """
         En el primer elemento list: ingresa la lista a buscar
         """
-        list.burble_sorted(list, order_by)
+        lista = products.burble_sorted(list, order_by)
         order = products.search_index(order_by)
         steps = 0
         left = 0
-        right = len(list) - 1
-        while left[order] <= right[order]:
+        right = len(lista) - 1
+        while lista[left][order] <= lista[right][order]:
             steps += 1
             middle_point = (left+right)//2
-            if list[middle_point] == search:
-                return 'Valor encontrado en {0} pasos en la posición {1}'.format(steps, middle_point)
-            if list[middle_point] > search:
+            if lista[middle_point][order] == search:
+                return f"""
+codigo: {lista[middle_point][0]}
+nombre: {lista[middle_point][1]}
+stock: {lista[middle_point][2]}
+stock minimo: {lista[middle_point][3]}
+stock maximo: {lista[middle_point][4]}
+Valor unitario: ${lista[middle_point][5]}
+                """
+            if lista[middle_point][order] > search:
                 right =middle_point - 1 
-            if list[middle_point] < search:
+            if lista[middle_point][order] < search:
                 left =middle_point + 1 
         return f'El elemento {search} no se encontro'
