@@ -20,8 +20,10 @@ if __name__ == "__main__":
             store.append(p.products.add_product())
             print(store)
         elif option == 2:
-            element = input('Ingrese el elemento a buscar: ').lower()
-            print(p.products.binary_search(store, 'nombre', element))
+            print('indique por que elemento desea buscar \n>>> codigo, nombre, stock, stock minimo, stock maximo, Valor unitario')
+            busqueda = input(': ').lower()
+            element = input(f'Ingrese el {busqueda} del elemento a buscar: ').lower()
+            print(p.products.binary_search(store, busqueda, element))
         elif option == 3:
             pass
         elif option == 4:
